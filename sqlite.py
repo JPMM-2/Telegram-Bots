@@ -2,12 +2,12 @@
 import sqlite3
 
 # funcion para insertar registros
-def insert(id, name, num, when):
+def insert(id, name, edad, gender, when):
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
     #sql_str = 
     #cursor.execute('delete from clientes')
-    cursor.execute('INSERT INTO clientes (TelegramID, Name, Numero, Inscrito) VALUES (?, ?, ?, ?)', (id, name, num, when))
+    cursor.execute('INSERT INTO clientes (TelegramID, Name, Edad, Genero, Inscrito) VALUES (?, ?, ?, ?, ?)', (id, name, edad, gender, when))
     connection.commit()
     connection.close()
 
@@ -22,6 +22,20 @@ def exists(id):
         return rows[0][0]
     else:
         return False
+
+
+def delete(id):
+    connection = sqlite3.connect('database.db')
+    cursor = connection.cursor()
+    #sql_str = 
+    #cursor.execute('delete from clientes')
+    sql_str = 'delete from clientes where TelegramID = ' + str(id)
+    print (sql_str)
+    cursor.execute(sql_str)
+    connection.commit()
+    connection.close()
+
+
 
 
 '''
