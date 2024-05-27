@@ -4,7 +4,7 @@ from telebot.types import ReplyKeyboardMarkup # para crear botones
 from telebot.types import ForceReply # para citar unj mensaje
 from telebot.types import ReplyKeyboardRemove # para eliminar botones
 
-import b_cuestionario_new_users as new
+# import b_cuestionario_new_users as new
 
 import sqlite as sql
 
@@ -15,7 +15,7 @@ users = {}
 
 
 # mandamos una contestacion a los mesages que contienes "/"+ alguna de las palabras
-@bot.message_handler(commands=['start','hola','buenas','que pasa bro'])
+@bot.message_handler(commands=['start'])
 def cmd_start(message):
     #bot.send_message(message.chat.id,'Usa el comando /start para empezar a jugar')
     print (message.chat.id)
