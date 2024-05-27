@@ -19,7 +19,12 @@ users = {}
 def cmd_alta(message):
     markup = ForceReply()
     name = bot.send_message(message.chat.id, 'Como te llamas?', reply_markup = markup)
-    bot.register_next_step_handler(name, preguntar_edad)
+    nombre = message.text
+    print ('tu nombre es ' + nombre)
+    users[message.chat.id] = {}
+    users[message.chat.id]['nombre'] = message.text
+    markup = ForceReply()
+    age = bot.send_message(message.chat.id, 'Cual es tu edad?', reply_markup = markup)
 
 def preguntar_edad(message):
     nombre = message.text
