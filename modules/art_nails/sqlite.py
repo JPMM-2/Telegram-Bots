@@ -32,6 +32,8 @@ def get_id(num):
     connection.close()
     if rows:
         return rows[0][0]
+    else:
+        return False
 
 
 #aa = get_id('Unbsvev3')
@@ -52,3 +54,4 @@ def delete(id):
 
 
 
+	

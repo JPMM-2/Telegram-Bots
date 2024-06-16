@@ -9,8 +9,7 @@ def handle_borrar(bot):
         btn_yes = types.InlineKeyboardButton(text='Yes', callback_data='borrar_yes')
         btn_no = types.InlineKeyboardButton(text='No', callback_data='borrar_no')
         markup.add(btn_yes, btn_no)
-        msg = bot.send_message(message.chat.id, "Are you sure?", reply_markup=markup) 
-        #bot.register_next_step_handler(msg, callback_borrar)
+        bot.send_message(message.chat.id, "Are you sure?", reply_markup=markup)
 
     @bot.callback_query_handler(func=lambda call: call.data.startswith('borrar_'))
     def callback_borrar(call):
@@ -25,5 +24,4 @@ def handle_borrar(bot):
         except Exception as ex:
             template = "An exception of type {0} occurred. Arguments:\n{1!r}"
             message = template.format(type(ex).__name__, ex.args)
-            print (message)
-            
+            print(message)
